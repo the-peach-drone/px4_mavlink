@@ -5,16 +5,16 @@
 
 
 typedef struct __mavlink_vehicle_status_t {
- uint32_t condition; /*<  */
+ uint8_t condition; /*<  */
 } mavlink_vehicle_status_t;
 
-#define MAVLINK_MSG_ID_VEHICLE_STATUS_LEN 4
-#define MAVLINK_MSG_ID_VEHICLE_STATUS_MIN_LEN 4
-#define MAVLINK_MSG_ID_180_LEN 4
-#define MAVLINK_MSG_ID_180_MIN_LEN 4
+#define MAVLINK_MSG_ID_VEHICLE_STATUS_LEN 1
+#define MAVLINK_MSG_ID_VEHICLE_STATUS_MIN_LEN 1
+#define MAVLINK_MSG_ID_180_LEN 1
+#define MAVLINK_MSG_ID_180_MIN_LEN 1
 
-#define MAVLINK_MSG_ID_VEHICLE_STATUS_CRC 197
-#define MAVLINK_MSG_ID_180_CRC 197
+#define MAVLINK_MSG_ID_VEHICLE_STATUS_CRC 170
+#define MAVLINK_MSG_ID_180_CRC 170
 
 
 
@@ -23,14 +23,14 @@ typedef struct __mavlink_vehicle_status_t {
     180, \
     "VEHICLE_STATUS", \
     1, \
-    {  { "condition", "0x%04x", MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_vehicle_status_t, condition) }, \
+    {  { "condition", "0x%04x", MAVLINK_TYPE_UINT8_T, 0, 0, offsetof(mavlink_vehicle_status_t, condition) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_VEHICLE_STATUS { \
     "VEHICLE_STATUS", \
     1, \
-    {  { "condition", "0x%04x", MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_vehicle_status_t, condition) }, \
+    {  { "condition", "0x%04x", MAVLINK_TYPE_UINT8_T, 0, 0, offsetof(mavlink_vehicle_status_t, condition) }, \
          } \
 }
 #endif
@@ -45,11 +45,11 @@ typedef struct __mavlink_vehicle_status_t {
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_vehicle_status_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint32_t condition)
+                               uint8_t condition)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_VEHICLE_STATUS_LEN];
-    _mav_put_uint32_t(buf, 0, condition);
+    _mav_put_uint8_t(buf, 0, condition);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_VEHICLE_STATUS_LEN);
 #else
@@ -74,11 +74,11 @@ static inline uint16_t mavlink_msg_vehicle_status_pack(uint8_t system_id, uint8_
  */
 static inline uint16_t mavlink_msg_vehicle_status_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint32_t condition)
+                                   uint8_t condition)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_VEHICLE_STATUS_LEN];
-    _mav_put_uint32_t(buf, 0, condition);
+    _mav_put_uint8_t(buf, 0, condition);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_VEHICLE_STATUS_LEN);
 #else
@@ -127,11 +127,11 @@ static inline uint16_t mavlink_msg_vehicle_status_encode_chan(uint8_t system_id,
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_vehicle_status_send(mavlink_channel_t chan, uint32_t condition)
+static inline void mavlink_msg_vehicle_status_send(mavlink_channel_t chan, uint8_t condition)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_VEHICLE_STATUS_LEN];
-    _mav_put_uint32_t(buf, 0, condition);
+    _mav_put_uint8_t(buf, 0, condition);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_VEHICLE_STATUS, buf, MAVLINK_MSG_ID_VEHICLE_STATUS_MIN_LEN, MAVLINK_MSG_ID_VEHICLE_STATUS_LEN, MAVLINK_MSG_ID_VEHICLE_STATUS_CRC);
 #else
@@ -164,11 +164,11 @@ static inline void mavlink_msg_vehicle_status_send_struct(mavlink_channel_t chan
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_vehicle_status_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint32_t condition)
+static inline void mavlink_msg_vehicle_status_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t condition)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
-    _mav_put_uint32_t(buf, 0, condition);
+    _mav_put_uint8_t(buf, 0, condition);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_VEHICLE_STATUS, buf, MAVLINK_MSG_ID_VEHICLE_STATUS_MIN_LEN, MAVLINK_MSG_ID_VEHICLE_STATUS_LEN, MAVLINK_MSG_ID_VEHICLE_STATUS_CRC);
 #else
@@ -190,9 +190,9 @@ static inline void mavlink_msg_vehicle_status_send_buf(mavlink_message_t *msgbuf
  *
  * @return  
  */
-static inline uint32_t mavlink_msg_vehicle_status_get_condition(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_vehicle_status_get_condition(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint32_t(msg,  0);
+    return _MAV_RETURN_uint8_t(msg,  0);
 }
 
 /**

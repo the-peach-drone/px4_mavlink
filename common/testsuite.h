@@ -8085,7 +8085,7 @@ static void mavlink_test_vehicle_status(uint8_t system_id, uint8_t component_id,
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_vehicle_status_t packet_in = {
-        963497464
+        5
     };
     mavlink_vehicle_status_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
