@@ -6533,10 +6533,11 @@
       <field type="int32_t" name="lon" units="degE7">Longitude where capture was taken</field>
       <field type="int32_t" name="alt" units="mm">Altitude (MSL) where image was taken</field>
       <field type="int32_t" name="relative_alt" units="mm">Altitude above ground</field>
-      <field type="float[4]" name="q">Quaternion of camera orientation (w, x, y, z order, zero-rotation is 1, 0, 0, 0)</field>
+      <field type="float" name="roll" units="rad">Altitude above ground in meters, expressed as * 1E3 where image was taken</field>
+      <field type="float" name="pitch" units="rad">Altitude above ground in meters, expressed as * 1E3 where image was taken</field>
+      <field type="float" name="yaw" units="rad">Altitude above ground in meters, expressed as * 1E3 where image was taken</field>
       <field type="int32_t" name="image_index">Zero based index of this image (i.e. a new image will have index CAMERA_CAPTURE_STATUS.image count -1)</field>
       <field type="int8_t" name="capture_result">Boolean indicating success (1) or failure (0) while capturing this image.</field>
-      <field type="char[205]" name="file_url">URL of image taken. Either local storage or http://foo.jpg if camera provides an HTTP interface.</field>
     </message>
     <message id="264" name="FLIGHT_INFORMATION">
       <wip/>
