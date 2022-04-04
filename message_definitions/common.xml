@@ -3,6 +3,20 @@
   <version>3</version>
   <dialect>0</dialect>
   <enums>
+    <enum name="MAV_VEHICLE_CONDITION" bitmask="true">
+        <entry value="1" name="MAV_VEHICLE_CONDITION_GLOBAL_POSITION">
+            <description>0x01 global position</description>
+        </entry>
+        <entry value="2" name="MAV_VEHICLE_CONDITION_LOCAL_POSITION">
+            <description>0x02 local position</description>
+        </entry>
+        <entry value="4" name="MAV_VEHICLE_CONDITION_LOCAL_VELOCITY">
+            <description>0x04 local velocity</description>
+        </entry>
+        <entry value="8" name="MAV_VEHICLE_CONDITION_LOCAL_ALTITUDE">
+            <description>0x08 local altitude</description>
+        </entry>
+    </enum>
     <enum name="MAV_AUTOPILOT">
       <description>Micro air vehicle / autopilot classes. This identifies the individual model.</description>
       <entry value="0" name="MAV_AUTOPILOT_GENERIC">
@@ -6199,6 +6213,10 @@
       <field type="uint8_t" name="breach_mitigation" enum="FENCE_MITIGATE">Active action to prevent fence breach</field>
     </message>
     <!-- MESSAGE IDs 180 - 229: Space for custom messages in individual projectname_messages.xml files -->
+    <message id="180" name="VEHICLE_STATUS">
+      <description>vehicle status flags</description>
+      <field type="uint32_t" name="condition" enum="MAV_VEHICLE_CONDITION" display="bitmask" print_format="0x%04x"></field>
+    </message>
     <message id="230" name="ESTIMATOR_STATUS">
       <description>Estimator status message including flags, innovation test ratios and estimated accuracies. The flags message is an integer bitmask containing information on which EKF outputs are valid. See the ESTIMATOR_STATUS_FLAGS enum definition for further information. The innovation test ratios show the magnitude of the sensor innovation divided by the innovation check threshold. Under normal operation the innovation test ratios should be below 0.5 with occasional values up to 1.0. Values greater than 1.0 should be rare under normal operation and indicate that a measurement has been rejected by the filter. The user should be notified if an innovation test ratio greater than 1.0 is recorded. Notifications for values in the range between 0.5 and 1.0 should be optional and controllable by the user.</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
