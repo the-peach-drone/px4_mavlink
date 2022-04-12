@@ -19,6 +19,12 @@
         <entry value="16" name="MAV_VEHICLE_CONDITION_DATALINK_LOSS">
           <description>0x16 datalink loss</description>
         </entry>
+        <entry value="32" name="MAV_VEHICLE_CONDITION_HOME_POSITION">
+          <description>0x32 indicates a valid home position (a valid home position is not always a valid launch</description>
+        </entry>
+        <entry value="64" name="MAV_VEHICLE_CONDITION_AUTO_MISSION_AVAILABLE">
+          <description>0x64 auto mission available</description>
+        </entry>
     </enum>
     <enum name="MAV_AUTOPILOT">
       <description>Micro air vehicle / autopilot classes. This identifies the individual model.</description>
