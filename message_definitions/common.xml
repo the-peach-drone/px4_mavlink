@@ -6538,6 +6538,9 @@
       <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot).</field>
       <field type="uint64_t" name="time_utc" units="us">Timestamp (time since UNIX epoch) in UTC. 0 for unknown.</field>
       <field type="uint8_t" name="camera_id">Deprecated/unused. Component IDs are used to differentiate multiple cameras.</field>
+      <field type="int32_t" name="lat" units="degE7">Latitude where image was taken</field>
+      <field type="int32_t" name="lon" units="degE7">Longitude where capture was taken</field>
+      <field type="int32_t" name="alt" units="mm">Altitude (MSL) where image was taken</field>
       <field type="int32_t" name="relative_alt" units="mm">Altitude above ground</field>
       <field type="float[4]" name="q">Quaternion of camera orientation (w, x, y, z order, zero-rotation is 1, 0, 0, 0)</field>
       <field type="int32_t" name="image_index">Zero based index of this image (i.e. a new image will have index CAMERA_CAPTURE_STATUS.image count -1)</field>
